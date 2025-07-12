@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Layout from '../../components/Layout';
-import { MainContext } from '../../Context';
+import { MainContext } from '../../context';
 import { Menus } from '../../components/Menus';
 import { OrderSection } from '../../components/OrderSection';
 import { NavBar } from '../../components/NavBar';

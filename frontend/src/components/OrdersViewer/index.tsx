@@ -1,68 +1,70 @@
-import { useContext, useEffect } from 'react'
-import { FaPlus } from 'react-icons/fa'
-import { MainContext } from '../../Context'
-import { CreateBill } from '../CreateBill'
-import { Modal } from '../Modal'
+import { useContext, useEffect } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import { MainContext } from '../../context';
+import { CreateBill } from '../CreateBill';
+import { Modal } from '../Modal';
 
-import './index.css'
+import './index.css';
 
 interface MainContextType {
-  openCreateOrder: boolean
-  setOpenCreateOrder: (openCreateOrder: boolean) => void
+  openCreateOrder: boolean;
+  setOpenCreateOrder: (openCreateOrder: boolean) => void;
 }
 
 interface Order {
-  orderId: string
-  orders: Array<{ id: string; name: string }>
-  table: number
+  orderId: string;
+  orders: Array<{ id: string; name: string }>;
+  table: number;
 }
 
 export function OrdersViewer({
   orderList,
   setTableActive,
-  tableActive
+  tableActive,
 }: {
-  orderList: Array<Order>
-  tableActive: number
-  setTableActive: (table: number) => void
+  orderList: Array<Order>;
+  tableActive: number;
+  setTableActive: (table: number) => void;
 }): JSX.Element {
-  const { openCreateOrder, setOpenCreateOrder } = useContext(MainContext) as MainContextType
+  const { openCreateOrder, setOpenCreateOrder } = useContext(
+    MainContext
+  ) as MainContextType;
 
   useEffect(() => {
     if (tableActive) {
-      setOpenCreateOrder(false)
+      setOpenCreateOrder(false);
     }
-  }, [tableActive])
+  }, [tableActive]);
 
   return (
-    <div className="orders-viewer">
+    <div className='orders-viewer'>
       {!!openCreateOrder && !!tableActive && (
         <Modal stateUpdater={setOpenCreateOrder}>
           <CreateBill />
         </Modal>
       )}
       <span>Mesas</span>
-      <div className="orders">
+      <div className='orders'>
         {orderList?.map((order) => (
           <button
             key={order.orderId}
-            type="button"
+            type='button'
             onClick={() => setTableActive(order.table)}
-            className="table-button"
+            className='table-button'
           >
             {order.table}
           </button>
         ))}
         <button
-          type="button"
-          className="table-button create-table-button"
+          type='button'
+          className='table-button create-table-button'
           onClick={() => {
-            setOpenCreateOrder(true)
+            setOpenCreateOrder(true);
           }}
         >
           <FaPlus />
         </button>
       </div>
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { MainContext } from '../../Context';
+import { MainContext } from '../../context';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { FixedHandler } from '../FixedHandler';
 import { CreateBill } from '../CreateBill';

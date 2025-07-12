@@ -1,8 +1,8 @@
 import { useContext, useEffect } from 'react';
-import { MainContext } from '../../Context';
-import { ProductList } from '../../Components/ProductList';
-import { ProductBox } from '../../Components/ProductBox';
-import { OrdersViewer } from '../../Components/OrdersViewer';
+import { MainContext } from '../../context';
+import { ProductList } from '../../components/ProductList';
+import { ProductBox } from '../../components/ProductBox';
+import { OrdersViewer } from '../../components/OrdersViewer';
 import { ScreenWarning } from '../../common/ScreenWarning';
 import { ScreenLoading } from '../../common/ScreenLoading';
 import { ScreenError } from '../../common/ScreenError';

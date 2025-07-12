@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import './index.css';
 import { authenticate } from '../../utils';
-import { MainContext } from '../../Context';
+import { MainContext } from '../../context';
 import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
