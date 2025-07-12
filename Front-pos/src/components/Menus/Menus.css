@@ -1,0 +1,9 @@
+.Menus {
+  display: flex;
+  height: inherit;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 8px 16px;
+  gap: 8px;
+}

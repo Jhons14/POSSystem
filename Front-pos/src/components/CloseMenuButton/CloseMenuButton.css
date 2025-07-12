@@ -1,0 +1,8 @@
+.CloseMenuButton {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.567);
+  color: white;
+  cursor: pointer;
+}

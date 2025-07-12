@@ -1,0 +1,45 @@
+.signIn-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.signIn-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 300px;
+}
+.signIn-container > div > form {
+  height: 200px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.signIn-container > div > form > div {
+  display: flex;
+  height: 140px;
+  text-align: left;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.signIn-container > div > form > div > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.signIn-container div > form > button {
+  all: unset;
+  cursor: pointer;
+  height: 57px;
+  border-radius: 8px;
+}
+
+.signIn-container div > form > button:hover {
+  font-weight: bolder;
+  background-color: var(--hover-color);
+  color: var(--dark-bg-color);
+}

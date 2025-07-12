@@ -1,0 +1,35 @@
+.order-list-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+.edit-icon {
+  cursor: pointer;
+  position: absolute;
+  transition: transform 0.2s ease;
+  right: 4px;
+}
+.edit-icon:hover {
+  color: var(--order-section-color);
+  transform: scale(1.1);
+}
+.edit-icon--true {
+  color: var(--order-section-color);
+}
+
+.order-list {
+  scrollbar-width: none;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 4px;
+}
+.arrow_div {
+  display: flex;
+  min-height: 28px;
+  max-height: 28px;
+  justify-content: center;
+  align-items: center;
+}

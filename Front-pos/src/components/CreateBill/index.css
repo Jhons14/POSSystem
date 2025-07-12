@@ -1,0 +1,62 @@
+.create-bill-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 260px;
+}
+.create-bill-title {
+  text-align: center;
+}
+
+.register-client-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+  gap: 20px;
+  align-items: center;
+}
+
+.register-client-form > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  gap: 12px;
+  width: 100%;
+}
+.numero-mesa_label {
+  margin: 0;
+}
+
+.numero-mesa_input {
+  all: unset;
+  border: 1px solid var(--order-section-color);
+  border-radius: 4px;
+  text-align: center;
+  width: 48px;
+  margin: 0;
+}
+.register-client-form > button {
+  all: unset;
+  cursor: pointer;
+  width: 40%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid var(--order-section-color);
+  color: #fff;
+  text-align: center;
+}
+.register-client-form > button:hover {
+  background-color: var(--order-section-color);
+}
+
+.register-client-form > input {
+  width: 100%;
+}
+.create-order-message {
+  text-align: center;
+  height: 100%;
+  margin: 24px 0 0;
+  text-align: center;
+}

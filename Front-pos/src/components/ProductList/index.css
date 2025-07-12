@@ -1,0 +1,8 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  overflow-y: auto;
+  scrollbar-width: none;
+  grid-auto-rows: 80px; /* Todas las filas dinámicas tendrán 240px */
+  gap: 8px;
+}

@@ -1,0 +1,76 @@
+#product-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  padding: 4px;
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: fit-content;
+}
+
+.product-title {
+  font-size: larger;
+  text-align: center;
+}
+
+.product-option {
+  position: relative;
+  display: flex;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  height: 32px;
+  align-items: center;
+}
+
+.buttons-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#quantity-counter {
+  display: flex;
+  justify-content: center;
+  height: 24px;
+  width: 28px;
+}
+#quantity-counter::selection {
+  all: unset;
+}
+
+.quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease; /* Transición suave al hacer hover */
+}
+
+.quantity-button-minus {
+  color: var(--button-color-minus);
+}
+.quantity-button-plus {
+  color: var(--button-color-plus);
+}
+.quantity-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.size-buttons-container > div {
+  width: 80px;
+  height: 28px;
+}
+
+.size-button {
+  background-color: #fda503d3;
+  padding: 2px 12px;
+  border-radius: 4px;
+}

@@ -1,0 +1,30 @@
+.orderList__item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.orderListItem__button {
+  all: unset;
+  gap: 0.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px;
+  width: fit-content;
+  align-self: end;
+  transition: all 0.1s ease-in-out;
+}
+
+.orderListItem__button-confirm:hover {
+  color: rgb(5, 175, 5);
+  transform: scale(1.1);
+}
+
+.orderListItem__button-refresh:hover {
+  color: orange;
+  transform: scale(1.2);
+}

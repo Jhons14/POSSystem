@@ -1,0 +1,67 @@
+.NavBar {
+  width: 100vw;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  z-index: 10;
+  padding: 10px 24px;
+  top: 0;
+  border-bottom: solid 1px #fdf0d56b;
+}
+#Search-section {
+  width: 240px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+#Search-input {
+  border-radius: 8px;
+  padding: 10px 18px;
+  height: 100%;
+  color: var(--font-color);
+  z-index: 1;
+  background-color: var(--dark-bg-color);
+}
+
+#Search-input:focus:valid {
+  outline: none;
+  background-color: var(--dark-bg-color);
+  border: 1px outset var(--font-color);
+}
+
+#Search-input::placeholder {
+  color: var(--font-color);
+  opacity: 0.5;
+}
+
+#Search-button {
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+  right: 0;
+  background-color: var(--dark-bg-color);
+  height: 100%;
+  width: 80px;
+  justify-content: end;
+  align-items: center;
+  border-radius: 8px;
+  border: 0;
+}
+#Search-button:hover {
+  background-color: var(--font-color);
+}
+#Search-icon {
+  color: var(--font-color);
+}
+#Search-button:hover #Search-icon {
+  color: var(--dark-bg-color);
+}
+
+.signOut {
+  text-align: end;
+}
+.signOut > span {
+  cursor: pointer;
+}

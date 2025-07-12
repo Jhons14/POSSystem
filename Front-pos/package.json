@@ -1,0 +1,52 @@
+{
+  "name": "front-market",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fontsource/poppins": "^5.0.15",
+    "@heroicons/react": "^2.1.5",
+    "@hugeicons/react-pro": "^0.3.2",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vercel/speed-insights": "^1.0.12",
+    "@vitejs/plugin-react": "^4.2.1",
+    "fast-glob": "^3.3.2",
+    "micromatch": "^4.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.22.0",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.4.2",
+    "vite": "^5.0.12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5173"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5"
+  }
+}

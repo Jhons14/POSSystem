@@ -1,0 +1,21 @@
+:root {
+  --dark-bg-color: #14213d;
+  --order-section-color: #b5838d;
+  --product-box-color: #d62828;
+  --font-color: #fdf0d5;
+  --hover-color: #d4d4bb;
+  --mainViewSize: calc(100vh - 75px);
+  --button-color-menu: #81b29a;
+  --button-color-minus: #e02525;
+  --button-color-plus: #55d844;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--dark-bg-color);
+  color: var(--font-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
