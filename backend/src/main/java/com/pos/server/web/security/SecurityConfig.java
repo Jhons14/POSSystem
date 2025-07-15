@@ -74,7 +74,7 @@ public class SecurityConfig   {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://front-market-seven.vercel.app")); // o "*"
+        config.setAllowedOrigins(List.of("http://localhost:5173", "https://possystem.jstevenon.com" )); // o "*"
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // importante si usas cookies o JWT en header
