@@ -9,7 +9,8 @@ This proyect is building by front, server and database:
 - The server (backend) uses JAVA Spring, implements security bearer auth token with credencials, and was built on graddle.
 - The database uses PostgreSQL.
 
-You can see an application's preview here https://possystem.jstevenon.com/
+## Preview
+You can see an application's preview here https://possystem.jstevenon.com/ <br/>
 PASSWORD: Pos#14
 
 ## Instalación
