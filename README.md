@@ -9,16 +9,17 @@ This proyect is building by front, server and database:
 - The server (backend) uses JAVA Spring, implements security bearer auth token with credencials, and was built on graddle.
 - The database uses PostgreSQL.
 
-You can see an application's preview here https://front-market-nu.vercel.app/ 
-## Instalación
+You can see an application's preview here https://possystem.jstevenon.com/
+PASSWORD: Pos#14
 
+## Instalación
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/Jhons14/front-market.git
+   git clone https://github.com/Jhons14/POSSystem.git
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd front-market
+   cd frontend
    ```
 3. Instala las dependencias necesarias:
    ```bash
