@@ -1,7 +1,7 @@
 package com.pos.server.web.controller;
 
 
-import com.pos.server.domain.Customer;
+import com.pos.server.domain.model.Customer;
 import com.pos.server.domain.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package com.pos.server.domain.service;
 
-import com.pos.server.domain.Purchase;
+import com.pos.server.domain.model.Purchase;
 import com.pos.server.domain.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

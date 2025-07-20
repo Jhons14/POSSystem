@@ -1,6 +1,6 @@
 package com.pos.server.web.controller;
-import com.pos.server.domain.Category;
-import com.pos.server.domain.Product;
+import com.pos.server.domain.model.Category;
+import com.pos.server.domain.model.Product;
 import com.pos.server.domain.service.CategoryService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

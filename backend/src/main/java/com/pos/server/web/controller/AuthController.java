@@ -1,11 +1,11 @@
 package com.pos.server.web.controller;
 
 
-import com.pos.server.domain.dto.AuthenticationRequest;
-import com.pos.server.domain.dto.AuthenticationResponse;
-import com.pos.server.domain.dto.ErrorResponse;
+import com.pos.server.web.dto.AuthenticationRequest;
+import com.pos.server.web.dto.AuthenticationResponse;
+import com.pos.server.web.dto.ErrorResponse;
 import com.pos.server.domain.service.PosUserDetailsService;
-import com.pos.server.web.security.JwtUtil;
+import com.pos.server.infrastructure.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

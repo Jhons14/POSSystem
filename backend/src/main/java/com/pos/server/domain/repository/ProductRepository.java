@@ -1,6 +1,6 @@
 package com.pos.server.domain.repository;
 
-import com.pos.server.domain.Product;
+import com.pos.server.domain.model.Product;
 
 import java.util.List;
 import java.util.Optional;
