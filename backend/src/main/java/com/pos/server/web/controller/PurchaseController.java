@@ -1,6 +1,6 @@
 package com.pos.server.web.controller;
 
-import com.pos.server.domain.Purchase;
+import com.pos.server.domain.model.Purchase;
 import com.pos.server.domain.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

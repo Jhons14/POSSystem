@@ -1,6 +1,6 @@
 package com.pos.server.domain.repository;
 
-import com.pos.server.domain.Category;
+import com.pos.server.domain.model.Category;
 
 import java.util.List;
 import java.util.Optional;

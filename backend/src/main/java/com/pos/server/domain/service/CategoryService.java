@@ -1,6 +1,6 @@
 package com.pos.server.domain.service;
 
-import com.pos.server.domain.Category;
+import com.pos.server.domain.model.Category;
 import com.pos.server.domain.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
