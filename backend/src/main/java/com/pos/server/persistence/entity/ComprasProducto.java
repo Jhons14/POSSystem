@@ -2,13 +2,17 @@ package com.pos.server.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "compras_productos")
 public class ComprasProducto {
     @EmbeddedId
     private ComprasProductoPK id;
     private Integer cantidad;
-    private Double total;
+
+    @Column(name = "total", precision = 16, scale = 2)
+    private BigDecimal total;
     private Boolean estado;
 
     @ManyToOne
@@ -36,11 +40,11 @@ public class ComprasProducto {
         this.cantidad = cantidad;
     }
 
-    public Double getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 

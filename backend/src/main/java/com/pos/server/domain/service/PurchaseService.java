@@ -17,11 +17,12 @@ public class PurchaseService {
       return  purchaseRepository.getAll();
     }
 
-    public Optional<List<Purchase>> getByClient(String clientId){
+    public Optional<List<Purchase>> getByClient(Long clientId){
         return purchaseRepository.getByClient(clientId);
     }
 
     public Purchase save (Purchase purchase) {
+
         return purchaseRepository.save(purchase);
     }
 }

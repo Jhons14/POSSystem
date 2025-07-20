@@ -16,14 +16,16 @@ public class Compra {
     private Integer idCompra;
 
     @Column(name = "id_cliente")
-    private String idCliente;
+    private Long idCliente;
 
     private LocalDateTime fecha;
 
-    @Column(name = "medio_pago")
+    @Column(name = "medio_pago", columnDefinition = "bpchar(1)")
     private String medioPago;
 
     private String comentario;
+
+    @Column(name = "estado", columnDefinition = "bpchar(1)")
     private String estado;
 
     @ManyToOne
@@ -41,11 +43,11 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public String getIdCliente() {
+    public Long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(String idCliente) {
+    public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
     }
 

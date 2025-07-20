@@ -27,7 +27,7 @@ public class ProductController {
 
         try {
             //La clase ResponseEntity permite controlar los llamados a las solicitudes HTTP
-            return new ResponseEntity(productService.getAll(), HttpStatus.OK);
+            return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
         }catch (io.jsonwebtoken.ExpiredJwtException e){
             return new ResponseEntity(e, HttpStatus.UNAUTHORIZED);
         }

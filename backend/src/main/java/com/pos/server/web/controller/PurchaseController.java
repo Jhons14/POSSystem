@@ -21,12 +21,13 @@ public class PurchaseController {
     }
 
     @GetMapping("/client/{clientId}")
-    public ResponseEntity<List<Purchase>> getByClient(@PathVariable("clientId") String clientId){
+    public ResponseEntity<List<Purchase>> getByClient(@PathVariable("clientId") Long clientId){
         return purchaseService.getByClient(clientId).map(purchases -> new ResponseEntity<>(purchases, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/save")
     public ResponseEntity <Purchase> save (@RequestBody Purchase purchase) {
+
         return new ResponseEntity<>(purchaseService.save(purchase), HttpStatus.CREATED);
     }
 }

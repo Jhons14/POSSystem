@@ -52,6 +52,11 @@ public class SecurityConfig   {
 
                 // Configurar rutas permitidas sin autenticación
                 .authorizeHttpRequests(authz -> authz
+                        .requestMatchers(request ->
+                                request.getRemoteAddr().equals("127.0.0.1") ||
+                                        request.getRemoteAddr().equals("0:0:0:0:0:0:0:1") ||
+                                        request.getServerName().equals("localhost")
+                        ).permitAll()
                         .requestMatchers("/**/authenticate",
                                 "/v2/api-docs", "/swagger-ui/**", "/swagger-resources/**", "/*/swagger-resources/**",
                                 "/*/v2/api-docs", "/webjars/**", "/configuration/security", "/configuration/ui", "/images/**")
@@ -74,7 +79,7 @@ public class SecurityConfig   {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://possystem.jstevenon.com" )); // o "*"
+        config.setAllowedOrigins(List.of("http://localhost/*", "https://front-market-seven.vercel.app")); // o "*"
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // importante si usas cookies o JWT en header

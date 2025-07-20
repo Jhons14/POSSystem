@@ -1,10 +1,12 @@
 package com.pos.server.domain;
 
+import java.math.BigDecimal;
+
 public class Product {
     private int productId;
     private String name;
     private int categoryId;
-    private double price;
+    private BigDecimal price;
     private int stock;
     private boolean active;
 
@@ -43,11 +45,11 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

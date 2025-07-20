@@ -2,6 +2,7 @@ package com.pos.server.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 
 
 @Entity
@@ -21,8 +22,8 @@ public class Producto {
     @Column(name = "codigo_barras")
     private String codigoBarras;
 
-    @Column(name = "precio_venta")
-    private Double precioVenta;
+    @Column(name = "precio_venta", precision = 16, scale = 2)
+    private BigDecimal precioVenta;
 
     @Column(name = "cantidad_stock")
     private Integer cantidadStock;
@@ -76,11 +77,11 @@ public class Producto {
         this.codigoBarras = codigoBarras;
     }
 
-    public Double getPrecioVenta() {
+    public BigDecimal getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(Double precioVenta) {
+    public void setPrecioVenta(BigDecimal precioVenta) {
         this.precioVenta = precioVenta;
     }
 

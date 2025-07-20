@@ -1,9 +1,11 @@
 package com.pos.server.domain;
 
+import java.math.BigDecimal;
+
 public class PurchaseItem {
     private int productId;
     private int quantity;
-    private double total;
+    private BigDecimal total;
     private boolean active;
 
     public int getProductId() {
@@ -22,11 +24,11 @@ public class PurchaseItem {
         this.quantity = quantity;
     }
 
-    public double getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
