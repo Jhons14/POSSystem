@@ -15,7 +15,7 @@ public interface CustomerMapper {
     @Named("toCustomerFull")
 
     @Mappings({
-            @Mapping(source = "id", target = "customerId"),
+//            @Mapping(source = "id", target = "customerId"),
             @Mapping(source = "nombre", target = "firstName"),
             @Mapping(source = "apellidos", target = "lastName"),
             @Mapping(source = "celular", target = "phone"),
@@ -53,7 +53,6 @@ public interface CustomerMapper {
     // Mapeo específico para registro (sin campos sensibles)
     @Named("toPublicCustomer")
     @Mappings({
-            @Mapping(source = "customerId", target = "id"),
             @Mapping(source = "firstName", target = "nombre"),
             @Mapping(source = "lastName", target = "apellidos"),
             @Mapping(source = "phone", target = "celular"),
@@ -82,7 +81,6 @@ public interface CustomerMapper {
 
     // Mapeo para respuesta pública (sin datos sensibles)
     @Mappings({
-            @Mapping(source = "id", target = "customerId"),
             @Mapping(source = "nombre", target = "firstName"),
             @Mapping(source = "apellidos", target = "lastName"),
             @Mapping(source = "correoElectronico", target = "email"),

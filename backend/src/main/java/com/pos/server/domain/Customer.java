@@ -66,13 +66,13 @@ public class Customer {
 
     // Constructor completo - Con datos opcionales del usuario
 
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+//    public Long getCustomerId() {
+//        return customerId;
+//    }
+//
+//    public void setCustomerId(Long customerId) {
+//        this.customerId = customerId;
+//    }
 
     public String getFirstName() {
         return firstName;

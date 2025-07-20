@@ -15,8 +15,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // ← Auto-incremental
     @Column(name = "id")
-    private Long id;  // Cambiar a Long
-
+    private Long id;
 
     private String nombre;
     private String apellidos;
@@ -133,13 +132,13 @@ public class Cliente {
     }
 
     // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public String getNombre() {
         return nombre;
