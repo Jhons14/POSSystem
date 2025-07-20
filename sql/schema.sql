@@ -32,14 +32,28 @@ CREATE TABLE  PRODUCTOS (
 -- -----------------------------------------------------
 -- Table "CLIENTES"
 -- -----------------------------------------------------
-CREATE TABLE  CLIENTES (
-  "id" VARCHAR(20) NOT NULL,
-  "nombre" VARCHAR(40) NULL,
-  "apellidos" VARCHAR(100) NULL,
-  "celular" NUMERIC NULL,
-  "direccion" VARCHAR(80) NULL,
-  "correo_electronico" VARCHAR(70) NULL,
-  PRIMARY KEY ("id"));
+CREATE TABLE CLIENTES (
+    id BIGSERIAL PRIMARY KEY,
+    nombre VARCHAR(40),
+    apellidos VARCHAR(100),
+    celular VARCHAR(20),
+    direccion VARCHAR(80),
+    correo_electronico VARCHAR(70) UNIQUE NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ultimo_login TIMESTAMP,
+    intentos_login INTEGER DEFAULT 0,
+    activo BOOLEAN DEFAULT TRUE,
+    email_verificado BOOLEAN DEFAULT FALSE,
+    cuenta_bloqueada BOOLEAN DEFAULT FALSE,
+    token_verificacion VARCHAR(255),
+    token_verificacion_expira TIMESTAMP,
+    foto_perfil TEXT,
+    fecha_nacimiento DATE,
+    genero VARCHAR(20)
+);
 
 
 -- -----------------------------------------------------

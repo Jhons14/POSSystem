@@ -61,9 +61,19 @@ INSERT INTO productos VALUES (49, 'Frijol', 8, '2745 F40 45', 8200, 270, true);
 INSERT INTO productos VALUES (50, 'Café', 8, '6351 R33 92', 7200, 400, true);
 
 -- CLIENTES
-INSERT INTO clientes VALUES ('4546221', 'Johannes', 'Kepler', 3104583224, 'Cl 3 # 33 - 33', 'kepler@me.com');
-INSERT INTO clientes VALUES ('2552243', 'Galileo', 'Galilei', 3462257293, 'Cl 1 # 11 - 11', 'gali@leo.com');
-INSERT INTO clientes VALUES ('983824', 'Nicolás', 'Copernico', 3019392466, 'Cl 2 # 22 - 22', 'nico@cope.com');
+INSERT INTO CLIENTES (
+    id, nombre, apellidos, celular, direccion, correo_electronico, 
+    username, password_hash
+) VALUES (
+    'CLI001', 
+    'Juan', 
+    'Pérez García', 
+    '+57 300 123 4567', 
+    'Calle 123 #45-67, Bogotá', 
+    'juan@email.com',
+    'juan_perez',
+    '$2b$10$ejemplo_hash_bcrypt_aqui'
+);
 
 -- COMPRA
 INSERT INTO compras VALUES (1, '4546221', TO_TIMESTAMP('10/08/1992 17:30:00','DD/MM/YYYY HH24:MI:SS'), 'E', '', 'P');
