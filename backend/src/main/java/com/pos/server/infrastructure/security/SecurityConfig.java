@@ -3,6 +3,7 @@ package com.pos.server.infrastructure.security;
 import com.pos.server.domain.service.PosUserDetailsService;
 import com.pos.server.infrastructure.security.filter.JwtFilterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -77,11 +78,12 @@ public class SecurityConfig   {
         return http.build();
     }
 
-
+    @Value("${cors.allowed-origins}")
+    private String[] allowedOrigins;
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost/*", "https://front-market-seven.vercel.app")); // o "*"
+        config.setAllowedOrigins(List.of(allowedOrigins)); // o "*"
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // importante si usas cookies o JWT en header
