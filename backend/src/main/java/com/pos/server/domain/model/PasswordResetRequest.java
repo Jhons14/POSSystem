@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class PasswordResetRequest {
     private Long requestId;
-    private String customerId;
+    private Long customerId;
     private String resetToken;
     private LocalDateTime expiresAt;
     private Boolean used;
@@ -13,7 +13,7 @@ public class PasswordResetRequest {
     private LocalDateTime createdAt;
     // getters y setters...
 
-    public PasswordResetRequest(Long requestId, String customerId, String resetToken, LocalDateTime expiresAt, Boolean used, InetAddress requestIp, LocalDateTime createdAt) {
+    public PasswordResetRequest(Long requestId, Long customerId, String resetToken, LocalDateTime expiresAt, Boolean used, InetAddress requestIp, LocalDateTime createdAt) {
         this.requestId = requestId;
         this.customerId = customerId;
         this.resetToken = resetToken;
@@ -31,11 +31,11 @@ public class PasswordResetRequest {
         this.requestId = requestId;
     }
 
-    public String getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 

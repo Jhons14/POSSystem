@@ -8,6 +8,8 @@ import com.pos.server.infrastructure.persistence.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public class ClienteRepository implements CustomerRepository {
 
@@ -22,4 +24,22 @@ public class ClienteRepository implements CustomerRepository {
         Cliente cliente = customerMapper.toCliente(customer);
         return customerMapper.toCustomer(clienteCrudRepository.save(cliente));
     }
+
+    public Optional<Cliente> findByUsernameOrCorreoElectronico(String username, String email) {
+        Optional<Cliente> cliente = clienteCrudRepository.findByUsernameOrCorreoElectronico(username, email);
+        return cliente;
+    }
+
+    // Métodos adicionales para login
+    public Optional<Cliente> findByUsername(String username) {
+        Optional<Cliente> cliente = clienteCrudRepository.findByUsername(username);
+
+
+        return cliente;
+    }
+
+    public Optional<Cliente> findByCorreoElectronico(String email) {
+        return clienteCrudRepository.findByCorreoElectronico(email);
+    }
+
 }

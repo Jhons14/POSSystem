@@ -15,7 +15,7 @@ public class PasswordReset {
     private Integer id;
 
     @Column(name = "cliente_id", nullable = false)
-    private String clienteId;
+    private Long clienteId;
 
     @Column(nullable = false, unique = true)
     private String token;
@@ -42,7 +42,7 @@ public class PasswordReset {
         this.usado = false;
     }
 
-    public PasswordReset(String clienteId, InetAddress ipSolicitud) {
+    public PasswordReset(Long clienteId, InetAddress ipSolicitud) {
         this();
         this.clienteId = clienteId;
         this.token = "reset_" + UUID.randomUUID().toString();
@@ -72,11 +72,11 @@ public class PasswordReset {
         this.id = id;
     }
 
-    public String getClienteId() {
+    public Long getClienteId() {
         return clienteId;
     }
 
-    public void setClienteId(String clienteId) {
+    public void setClienteId(Long clienteId) {
         this.clienteId = clienteId;
     }
 

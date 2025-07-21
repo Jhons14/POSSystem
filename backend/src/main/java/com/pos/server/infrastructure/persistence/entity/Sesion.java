@@ -19,7 +19,7 @@ import java.util.UUID;
         private Integer id;
 
         @Column(name = "cliente_id", nullable = false)
-        private String clienteId;
+        private Long clienteId;
 
         @Column(name = "token_sesion", nullable = false, unique = true)
         private String tokenSesion;
@@ -53,7 +53,7 @@ import java.util.UUID;
             this.activa = true;
         }
 
-        public Sesion(String clienteId, InetAddress ipAddress, String userAgent) {
+        public Sesion(Long clienteId, InetAddress ipAddress, String userAgent) {
             this();
             this.clienteId = clienteId;
             this.tokenSesion = "session_" + UUID.randomUUID().toString();
@@ -93,11 +93,11 @@ import java.util.UUID;
             this.id = id;
         }
 
-        public String getClienteId() {
+        public Long getClienteId() {
             return clienteId;
         }
 
-        public void setClienteId(String clienteId) {
+        public void setClienteId(Long clienteId) {
             this.clienteId = clienteId;
         }
 

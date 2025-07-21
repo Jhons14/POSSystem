@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class Session {
     private Integer sessionId;
-    private String customerId;
+    private Long customerId;
     private String sessionToken;
     private InetAddress ipAddress;
     private String userAgent;
@@ -16,7 +16,7 @@ public class Session {
     // getters y setters...
 
 
-    public Session(Integer sessionId, String customerId, String sessionToken, InetAddress ipAddress, String userAgent, LocalDateTime expiresAt, Boolean active, LocalDateTime createdAt, LocalDateTime lastUsed) {
+    public Session(Integer sessionId, Long customerId, String sessionToken, InetAddress ipAddress, String userAgent, LocalDateTime expiresAt, Boolean active, LocalDateTime createdAt, LocalDateTime lastUsed) {
         this.sessionId = sessionId;
         this.customerId = customerId;
         this.sessionToken = sessionToken;
@@ -36,11 +36,11 @@ public class Session {
         this.sessionId = sessionId;
     }
 
-    public String getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 

@@ -13,6 +13,8 @@ public class JwtUtil {
     private static final String KEY = "posserver11c16375812192317TYHEWPUGnxoldsaDJSA412";
 
     public String generateToken(UserDetails userDetails) {
+
+
         return Jwts.builder().setSubject(userDetails.getUsername()).setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 15))
                 .signWith(SignatureAlgorithm.HS256, KEY).compact();
