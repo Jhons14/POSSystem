@@ -30,7 +30,6 @@ public class GlobalExceptionHandler {
         String message = "Formato de datos incorrecto";
         String details = ex.getMessage().toLowerCase();
 
-        System.out.println("DEBUG - JSON Parse Error: " + ex.getMessage());
 
         // Detectar tipos específicos de errores de parsing
         if (details.contains("cannot deserialize") && details.contains("long")) {
@@ -171,7 +170,6 @@ public class GlobalExceptionHandler {
         // Combinar ambos mensajes para mejor detección
         String fullMessage = (rootCauseMessage).toLowerCase();
 
-        System.out.println("DEBUG - Full error message: " + fullMessage); // Para debugging
 
         // Detectar tipos específicos de errores con palabras en español
         if (fullMessage.contains("llave duplicada") ||
@@ -196,7 +194,6 @@ public class GlobalExceptionHandler {
                 message = "Ya existe un registro con estos datos";
 
                 // Debug para ver exactamente qué constraint se violó
-                System.out.println("DEBUG - Constraint violation details: " + fullMessage);
             }
 
         } else if (fullMessage.contains("foreign key") ||
@@ -300,7 +297,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ErrorResponse> handleIllegalArgument(
             IllegalArgumentException ex, WebRequest request) {
-
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.BAD_REQUEST.value(),
                 "INVALID_ARGUMENT",
@@ -316,7 +312,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleRuntimeException(
             RuntimeException ex, WebRequest request) {
 
-        System.out.println("DEBUG - RuntimeException: " + ex.getClass().getSimpleName() + " - " + ex.getMessage());
 
         // Verificar si es un tipo específico y devolver mensaje apropiado
         String exceptionName = ex.getClass().getSimpleName();

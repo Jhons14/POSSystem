@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Customer {
-    private Long customerId;
+
     private String firstName;
     private String lastName;
     private String phone;
@@ -63,16 +63,6 @@ public class Customer {
         this.gender = gender;
         this.password = password;  // ← ESENCIAL
     }
-
-    // Constructor completo - Con datos opcionales del usuario
-
-//    public Long getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(Long customerId) {
-//        this.customerId = customerId;
-//    }
 
     public String getFirstName() {
         return firstName;

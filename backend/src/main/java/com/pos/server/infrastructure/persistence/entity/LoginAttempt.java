@@ -14,7 +14,7 @@ public class LoginAttempt {
     private Integer id;
 
     @Column(name = "cliente_id")
-    private String clienteId;
+    private Long clienteId;
 
     @Column(name = "ip_address")
     private InetAddress ipAddress;
@@ -40,7 +40,7 @@ public class LoginAttempt {
         this.fechaIntento = LocalDateTime.now();
     }
 
-    public LoginAttempt(String clienteId, InetAddress ipAddress, Boolean exitoso, String razonFallo, String userAgent) {
+    public LoginAttempt(Long clienteId, InetAddress ipAddress, Boolean exitoso, String razonFallo, String userAgent) {
         this();
         this.clienteId = clienteId;
         this.ipAddress = ipAddress;
@@ -50,19 +50,19 @@ public class LoginAttempt {
     }
 
     // Métodos estáticos para crear intentos comunes
-    public static LoginAttempt exitoso(String clienteId, InetAddress ipAddress, String userAgent) {
+    public static LoginAttempt exitoso(Long clienteId, InetAddress ipAddress, String userAgent) {
         return new LoginAttempt(clienteId, ipAddress, true, null, userAgent);
     }
 
-    public static LoginAttempt fallido(String clienteId, InetAddress ipAddress, String razon, String userAgent) {
+    public static LoginAttempt fallido(Long clienteId, InetAddress ipAddress, String razon, String userAgent) {
         return new LoginAttempt(clienteId, ipAddress, false, razon, userAgent);
     }
 
-    public static LoginAttempt passwordIncorrecto(String clienteId, InetAddress ipAddress, String userAgent) {
+    public static LoginAttempt passwordIncorrecto(Long clienteId, InetAddress ipAddress, String userAgent) {
         return fallido(clienteId, ipAddress, "password_incorrecto", userAgent);
     }
 
-    public static LoginAttempt usuarioBloqueado(String clienteId, InetAddress ipAddress, String userAgent) {
+    public static LoginAttempt usuarioBloqueado(Long clienteId, InetAddress ipAddress, String userAgent) {
         return fallido(clienteId, ipAddress, "usuario_bloqueado", userAgent);
     }
 
@@ -79,11 +79,11 @@ public class LoginAttempt {
         this.id = id;
     }
 
-    public String getClienteId() {
+    public Long getClienteId() {
         return clienteId;
     }
 
-    public void setClienteId(String clienteId) {
+    public void setClienteId(Long clienteId) {
         this.clienteId = clienteId;
     }
 

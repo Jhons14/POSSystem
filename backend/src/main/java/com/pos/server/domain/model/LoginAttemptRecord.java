@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class LoginAttemptRecord {
     private Integer attemptId;
-    private String customerId;
+    private Long customerId;
     private InetAddress ipAddress;
     private Boolean successful;
     private String failureReason;
@@ -13,7 +13,7 @@ public class LoginAttemptRecord {
     private LocalDateTime attemptTime;
     // getters y setters...
 
-    public LoginAttemptRecord(Integer attemptId, String customerId, InetAddress ipAddress, Boolean successful, String failureReason, String userAgent, LocalDateTime attemptTime) {
+    public LoginAttemptRecord(Integer attemptId, Long customerId, InetAddress ipAddress, Boolean successful, String failureReason, String userAgent, LocalDateTime attemptTime) {
         this.attemptId = attemptId;
         this.customerId = customerId;
         this.ipAddress = ipAddress;
@@ -31,11 +31,11 @@ public class LoginAttemptRecord {
         this.attemptId = attemptId;
     }
 
-    public String getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 
