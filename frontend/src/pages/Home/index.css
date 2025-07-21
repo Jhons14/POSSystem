@@ -4,6 +4,7 @@
   grid-template-columns: 200px auto 500px;
   height: var(--mainViewSize); /* Total menos altura de la navBar */
   background: var(--dark-bg-color);
+  width: 100vw;
 }
 
 .product-menu-container {
@@ -14,9 +15,8 @@
     grid-template-columns: 2fr 3fr 3fr;
   }
 }
-
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-container {
-    background-color: red;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
