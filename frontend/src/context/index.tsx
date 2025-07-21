@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from 'react';
 
-export const authContext = createContext();
+export const authContext = createContext({});
 
 export function AuthProvider({ children }): JSX.Element {
   const [auth, setAuth] = useState({});
@@ -12,7 +12,7 @@ export function AuthProvider({ children }): JSX.Element {
   );
 }
 
-export const MainContext = createContext();
+export const MainContext = createContext({});
 
 export function MainProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState());
