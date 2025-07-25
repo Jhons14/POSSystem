@@ -3,6 +3,8 @@ package com.pos.server.domain.service;
 import com.pos.server.domain.model.Product;
 import com.pos.server.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,24 +15,27 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Cacheable(value = "products", key = "'all'")
     public List<Product> getAll() {
         return productRepository.getAll();
     }
 
-
-
+    @Cacheable(value = "products", key = "#productId")
     public Optional<Product> getProduct(int productId) {
         return productRepository.getProduct(productId);
     }
 
+    @Cacheable(value = "productsByCategory", key = "#categoryId")
     public Optional<List<Product>> getByCategory(int categoryId) {
         return productRepository.getByCategory(categoryId);
     }
 
+    @CacheEvict(value = {"products", "productsByCategory"}, allEntries = true)
     public Product save(Product product) {
         return productRepository.save(product);
     }
 
+    @CacheEvict(value = {"products", "productsByCategory"}, allEntries = true)
     public Product update (Product product, int productID) {
             Optional<Product> optionalProduct = productRepository.getProduct(productID);
 
@@ -58,6 +63,7 @@ public class ProductService {
             }
     }
 
+    @CacheEvict(value = {"products", "productsByCategory"}, allEntries = true)
     public boolean delete(int productId) {
         return getProduct(productId).map(product -> {
             productRepository.delete(productId);
