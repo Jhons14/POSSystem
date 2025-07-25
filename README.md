@@ -1,56 +1,101 @@
-# Point Of Sale (POS) system
+# Point Of Sale (POS) System
 
-Easy management of your products, orders and bussiness.
-You're free to decide your own custom bussines model.
+Easy management of your products, orders and business operations.
+Flexible architecture allowing you to customize your business model.
 
 ## Description
-This proyect is building by front, server and database:
-- Front-end uses React.js and Vite technologies.
-- The server (backend) uses JAVA Spring, implements security bearer auth token with credencials, and was built on graddle.
-- The database uses PostgreSQL.
+This project consists of three main components:
+- **Frontend**: Built with React.js and Vite for fast development and optimal performance
+- **Backend**: Java Spring Boot application with JWT authentication and RESTful APIs, built with Gradle
+- **Database**: PostgreSQL for reliable data persistence
 
 ## Preview
 You can see an application's preview here https://possystem.jstevenon.com/ <br/>
 *Contact the repository owner for demo credentials*
 
-## Instalación
-1. Clona el repositorio:
+## Installation
+
+### Prerequisites
+- Node.js 18+ and npm
+- Java 17+
+- PostgreSQL 12+
+- Gradle 8+
+
+### Frontend Setup
+1. Clone the repository:
    ```bash
    git clone https://github.com/Jhons14/POSSystem.git
+   cd POSSystem/frontend
    ```
-2. Navega al directorio del proyecto:
-   ```bash
-   cd frontend
-   ```
-3. Instala las dependencias necesarias:
+
+2. Install dependencies:
    ```bash
    npm install
    ```
-4. Configura las variables de entorno:
+
+3. Configure environment variables:
    ```bash
-    cp .env.example .env
+   cp .env.example .env
+   # Edit .env with your configuration
    ```
-5. Configura las variables de entorno:
+
+4. Start the development server:
    ```bash
-    npm run DEV
+   npm run dev
    ```
-The frontend should now be running on http://localhost:5173.
+   The frontend will be available at http://localhost:5173
+
+### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd ../backend
+   ```
+
+2. Configure database connection in `src/main/resources/application.properties`
+
+3. Build and run the application:
+   ```bash
+   ./gradlew bootRun
+   ```
+   The API will be available at http://localhost:8080
+
+### Database Setup
+1. Create a PostgreSQL database
+2. Run the SQL scripts in the `sql/` directory:
+   ```bash
+   psql -d your_database -f sql/schema.sql
+   psql -d your_database -f sql/data.sql
+   psql -d your_database -f sql/security.sql
+   ```
+
+## Features
+
+- **Product Management**: Add, edit, and organize products by categories
+- **Sales Processing**: Complete point-of-sale transactions with cart management
+- **Customer Management**: Register and manage customer information
+- **Inventory Tracking**: Monitor product stock and availability
+- **Secure Authentication**: JWT-based user authentication and authorization
+- **Responsive Design**: Works on desktop and mobile devices
+- **RESTful API**: Well-documented API endpoints for integration
 
 ## Usage
 
 ### Access the System
 
-1. **Login:**
+1. **Login**: Navigate to `http://localhost:5173` and authenticate with your credentials
 
-   - Open your browser and navigate to `http://localhost:5173`.
+2. **Dashboard**: View sales statistics, inventory status, and business metrics
 
-2. **Dashboard:**
+3. **Sales**: Process transactions by adding items to cart and completing purchases
 
-   - After logging in, you will be taken to the dashboard, where you can view sales stats, manage inventory, and more.
+4. **Products**: Manage your product catalog and categories
 
-3. **Sales:**
+5. **Customers**: Register new customers and view customer information
 
-   - Navigate to the "Sales" section to process transactions. Add items to the cart, apply discounts, and complete the sale.
+## API Documentation
+
+Once the backend is running, access the Swagger documentation at:
+`http://localhost:8080/swagger-ui/index.html`
 
 ## Contributing
 
