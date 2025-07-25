@@ -51,7 +51,7 @@ echo "🔙 Starting backend..."
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d backend
 
 echo "⏳ Waiting for backend to be ready..."
-until curl -f http://localhost:8080/pos/server/api/health > /dev/null 2>&1; do
+until curl -f http://localhost:8080/pos/server/api/actuator/health > /dev/null 2>&1; do
     sleep 2
 done
 
@@ -77,7 +77,7 @@ echo ""
 echo "🎉 Production deployment completed successfully!"
 echo ""
 echo "🌐 Application: https://yourdomain.com"
-echo "🔙 API Health: https://yourdomain.com/api/health"
+echo "🔙 API Health: https://yourdomain.com/api/actuator/health"
 echo ""
 echo "📊 To monitor logs:"
 echo "   docker-compose -f docker-compose.yml -f docker-compose.prod.yml logs -f"

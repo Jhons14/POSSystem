@@ -43,13 +43,13 @@ done
 
 # Wait for backend
 echo "🔙 Waiting for backend..."
-until curl -f http://localhost:8080/pos/server/api/health > /dev/null 2>&1; do
+until curl -f http://localhost:8080/pos/server/api/actuator/health > /dev/null 2>&1; do
     sleep 2
 done
 
 # Wait for frontend
 echo "🖥️  Waiting for frontend..."
-until curl -f http://localhost:3000/health > /dev/null 2>&1; do
+until curl -f http://localhost:3000 > /dev/null 2>&1; do
     sleep 2
 done
 
