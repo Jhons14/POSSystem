@@ -34,7 +34,7 @@ cp .env.example .env
 ```
 
 ### Manual Installation
-- Node.js 18+ and npm
+- Bun (latest version)
 - Java 17+
 - PostgreSQL 12+
 - Gradle 8+
@@ -48,7 +48,7 @@ cp .env.example .env
 
 2. Install dependencies:
    ```bash
-   npm install
+   bun install
    ```
 
 3. Configure environment variables:
@@ -59,7 +59,7 @@ cp .env.example .env
 
 4. Start the development server:
    ```bash
-   npm run dev
+   bun run dev
    ```
    The frontend will be available at http://localhost:5173
 

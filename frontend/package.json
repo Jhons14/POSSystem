@@ -21,17 +21,17 @@
     "vite": "^5.0.12"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 5173",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint src --ext .ts,.tsx,.js,.jsx --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
-    "type-check": "tsc --noEmit",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "dev": "bunx --bun vite",
+    "build": "bunx --bun vite build",
+    "preview": "bunx --bun vite preview --port 5173",
+    "lint": "bunx eslint src --ext .ts,.tsx,.js,.jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "bunx eslint src --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "bunx prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "format:check": "bunx prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "type-check": "bunx --bun tsc --noEmit",
+    "test": "bunx --bun vitest",
+    "test:ui": "bunx --bun vitest --ui",
+    "test:coverage": "bunx --bun vitest --coverage"
   },
   "browserslist": {
     "production": [

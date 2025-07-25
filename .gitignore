@@ -58,6 +58,11 @@ node_modules
 /.pnp
 .pnp.js
 
+# Package manager lock files (keep only bun.lock for Bun)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # testing
 /coverage
 

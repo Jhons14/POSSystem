@@ -1,12 +1,12 @@
 # Etapa 1: build
-FROM node:18-alpine AS builder
+FROM oven/bun:1-alpine AS builder
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY package.json bun.lock ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN bun install --frozen-lockfile --production
 
 # Copy source code
 COPY . .
@@ -16,7 +16,7 @@ ARG VITE_SERVER_URL=http://localhost:8080/pos/server/api
 ENV VITE_SERVER_URL=$VITE_SERVER_URL
 
 # Build application
-RUN npm run build
+RUN bun run build
 
 # Etapa 2: production serve
 FROM nginx:alpine

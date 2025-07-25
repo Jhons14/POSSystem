@@ -12,6 +12,11 @@ if ! docker info > /dev/null 2>&1; then
     exit 1
 fi
 
+# Check if Bun is installed for local development
+if ! command -v bun &> /dev/null; then
+    echo "⚠️  Bun is not installed. Install it from https://bun.sh for local development."
+fi
+
 # Check if .env file exists
 if [ ! -f .env ]; then
     echo "📝 Creating .env file from .env.example"
