@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { registerCustomer, ApiError } from '../../utils/api';
 import './index.css';
 
 function CustomerRegistration({ stateUpdater }) {
@@ -32,37 +33,27 @@ function CustomerRegistration({ stateUpdater }) {
     setSuccess(false);
 
     try {
-      const response = await fetch(
-        'http://localhost:2020/pos/server/api/customer/save',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (response.ok) {
-        setSuccess(true);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          username: '',
-          password: '',
-          phone: '',
-          address: '',
-          birthDate: '',
-          gender: '',
-        });
-        stateUpdater(false);
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || 'Failed to register customer');
-      }
+      await registerCustomer(formData);
+      
+      setSuccess(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        username: '',
+        password: '',
+        phone: '',
+        address: '',
+        birthDate: '',
+        gender: '',
+      });
+      stateUpdater(false);
     } catch (err) {
-      setError('Network error. Please try again.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Network error. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

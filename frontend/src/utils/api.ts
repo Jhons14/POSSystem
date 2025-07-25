@@ -28,6 +28,23 @@ export interface ErrorResponse {
   fieldErrors?: Record<string, string>;
 }
 
+export interface CustomerRegistrationData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  username: string;
+  password: string;
+  phone?: string;
+  address?: string;
+  birthDate?: string;
+  gender?: string;
+}
+
+export interface CustomerRegistrationResponse {
+  id: number;
+  message: string;
+}
+
 // Configuration
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8080/pos/server/api';
 
@@ -40,6 +57,9 @@ const endpoints = {
   },
   categories: {
     all: `${SERVER_URL}/category/all`,
+  },
+  customers: {
+    register: `${SERVER_URL}/customer/save`,
   },
   files: {
     uploadProductImage: (id: number) => `${SERVER_URL}/files/upload/image/product/${id}`,
@@ -193,6 +213,16 @@ export async function getProductById(id: number): Promise<Product | null> {
     console.error('Error fetching product:', error);
     return null;
   }
+}
+
+// Customer registration
+export async function registerCustomer(
+  customerData: CustomerRegistrationData
+): Promise<CustomerRegistrationResponse> {
+  return apiRequest<CustomerRegistrationResponse>(endpoints.customers.register, {
+    method: 'POST',
+    body: JSON.stringify(customerData),
+  });
 }
 
 // Export the ApiError class for error handling in components
