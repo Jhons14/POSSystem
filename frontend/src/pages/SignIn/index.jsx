@@ -33,25 +33,30 @@ function SignIn() {
               <span>
                 <label htmlFor='email'>Email</label>
                 <input
-                  type='text'
-                  name='Sapo'
+                  type='email'
+                  name='email'
                   id='email'
-                  placeholder='Email'
+                  placeholder='Ingrese su email'
                   onChange={handleEmail}
-                  autoComplete='user-name'
+                  autoComplete='email'
                   value={email}
+                  required
+                  aria-describedby={error ? 'signin-error' : undefined}
                 />
               </span>
               <span>
-                <label htmlFor='password'>Password</label>
+                <label htmlFor='password'>Contraseña</label>
                 <input
                   type='password'
-                  name='Sapo'
+                  name='password'
                   id='password'
-                  placeholder='Password'
+                  placeholder='Ingrese su contraseña'
                   onChange={handlePassword}
                   autoComplete='current-password'
                   value={password}
+                  required
+                  minLength='8'
+                  aria-describedby={error ? 'signin-error' : undefined}
                 />
               </span>
             </div>
@@ -60,7 +65,7 @@ function SignIn() {
               Sign Up
             </button>
           </form>
-          {!!error && <p>{error}</p>}
+          {!!error && <p id='signin-error' role='alert'>{error}</p>}
         </div>
       </div>
     );

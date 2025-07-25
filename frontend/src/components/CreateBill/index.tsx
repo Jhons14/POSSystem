@@ -68,14 +68,19 @@ export function CreateBill(): JSX.Element {
       >
         <div>
           <label htmlFor='numero-mesa_input' className='numero-mesa_label'>
-            Numero de mesa:
+            Número de mesa:
           </label>
           <input
             inputMode='numeric'
             name='numero-mesa_input'
+            id='numero-mesa_input'
             className='numero-mesa_input'
+            placeholder='Ingrese el número'
             autoComplete='off'
             required
+            min='1'
+            pattern='[0-9]+'
+            title='Por favor ingrese un número válido'
           />
         </div>
         <button type='submit'>Registrar</button>

@@ -3,66 +3,167 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
+
 .create-bill-title {
   text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
 }
 
 .register-client-form {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  margin: 0 40px;
-  gap: 20px;
-  align-items: center;
+  gap: 2rem;
+  align-items: stretch;
 }
 
 .register-client-form > div {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-  gap: 12px;
-  width: 100%;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
 }
+
 .numero-mesa_label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
   margin: 0;
+  text-align: left;
 }
 
 .numero-mesa_input {
-  all: unset;
-  border: 1px solid var(--order-section-color);
-  border-radius: 4px;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
   text-align: center;
-  width: 48px;
-  margin: 0;
-}
-.register-client-form > button {
-  all: unset;
-  cursor: pointer;
-  width: 40%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 2px solid var(--order-section-color);
-  color: #fff;
-  text-align: center;
-}
-.register-client-form > button:hover {
-  background-color: var(--order-section-color);
+  transition: all 0.3s ease;
+  background: #f9fafb;
+  min-height: 60px;
+  box-sizing: border-box;
 }
 
-.register-client-form > input {
-  width: 100%;
+.numero-mesa_input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: scale(1.02);
 }
+
+.numero-mesa_input::placeholder {
+  color: #9ca3af;
+  font-weight: normal;
+}
+
+.register-client-form > button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-client-form > button:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.register-client-form > button:active {
+  transform: translateY(0);
+}
+
 .create-order-message {
   text-align: center;
-  height: 25px;
-  margin: 24px 0 0;
-
-  text-align: center;
+  min-height: 50px;
+  margin: 1rem 0 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 1024px) {
+.create-order-message:not(:empty) {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+@media (max-width: 768px) {
+  .create-bill-section {
+    padding: 1.5rem 0.75rem;
+  }
+  
   .register-client-form {
-    margin: 0;
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .create-bill-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .numero-mesa_input,
+  .register-client-form > button {
+    font-size: 1rem;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-bill-section {
+    padding: 1rem 0.5rem;
+  }
+  
+  .register-client-form {
+    padding: 1.25rem;
+    margin: 0 0.25rem;
+  }
+  
+  .create-bill-title {
+    font-size: 1.25rem;
+  }
+  
+  .numero-mesa_input,
+  .register-client-form > button {
+    font-size: 0.95rem;
+    padding: 0.875rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .register-client-form {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .create-bill-title {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
   }
 }
