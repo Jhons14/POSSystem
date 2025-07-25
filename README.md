@@ -1,19 +1,90 @@
 # Point Of Sale (POS) System
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://openjdk.org/)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue.svg)](https://www.typescriptlang.org/)
+[![Bun](https://img.shields.io/badge/Bun-1.x-black.svg)](https://bun.sh/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
+
 Easy management of your products, orders and business operations.
 Flexible architecture allowing you to customize your business model.
 
-## Description
-This project consists of three main components:
-- **Frontend**: Built with React.js and Vite for fast development and optimal performance
-- **Backend**: Java Spring Boot application with JWT authentication and RESTful APIs, built with Gradle
-- **Database**: PostgreSQL for reliable data persistence
+> **🚀 Production-Ready**: Enterprise-grade POS system with comprehensive security, monitoring, and deployment capabilities.
 
-## Preview
-You can see an application's preview here https://possystem.jstevenon.com/ <br/>
+## 📋 Table of Contents
+
+- [Description](#-description)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [API Documentation](#-api-documentation)
+- [Docker Development](#-docker-development)
+- [Production Deployment](#-production-deployment)
+- [Testing](#-testing)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## 📖 Description
+
+A modern, full-stack Point of Sale system designed for small to medium businesses. Built with enterprise-grade architecture featuring microservices design, comprehensive security, and cloud-ready deployment.
+
+### Architecture Components
+- **Frontend**: React 18 + TypeScript + Vite, optimized for performance with modern UI/UX
+- **Backend**: Spring Boot 3 with JWT authentication, RESTful APIs, and comprehensive security
+- **Database**: PostgreSQL with optimized schemas, indexing, and migration management
+- **Infrastructure**: Docker containerization, Nginx reverse proxy, Redis caching
+
+## 🌟 Features
+
+- **🛍️ Product Management**: Complete CRUD operations with category organization and image upload
+- **💳 Sales Processing**: Real-time cart management with multiple payment methods
+- **👥 Customer Management**: Customer registration, profiles, and purchase history
+- **📊 Inventory Tracking**: Stock monitoring with low-stock alerts and automated notifications
+- **🔐 Security**: JWT authentication, rate limiting, input validation, and OWASP compliance
+- **📱 Responsive Design**: Mobile-first design that works seamlessly across all devices
+- **🔌 RESTful API**: Comprehensive API with Swagger documentation for easy integration
+- **📈 Analytics**: Real-time sales statistics and business intelligence dashboard
+- **🚀 Performance**: Optimized with caching, connection pooling, and database indexing
+- **🐳 DevOps Ready**: Docker containerization with CI/CD pipeline support
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 18** - Modern UI library with hooks and context
+- **TypeScript** - Type-safe development experience
+- **Vite** - Lightning-fast build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Bun** - Ultra-fast JavaScript runtime and package manager
+
+### Backend
+- **Java 17** - Latest LTS version with modern language features
+- **Spring Boot 3** - Enterprise-grade framework with auto-configuration
+- **Spring Security** - Comprehensive security framework
+- **PostgreSQL** - Robust relational database with ACID compliance
+- **Flyway** - Database migration and version control
+- **Gradle** - Build automation and dependency management
+
+### Infrastructure & DevOps
+- **Docker** - Containerization for consistent deployments
+- **Nginx** - High-performance reverse proxy and load balancer
+- **Redis** - In-memory caching for improved performance
+- **HikariCP** - High-performance database connection pooling
+
+### Testing & Quality
+- **Vitest** - Fast unit testing framework for frontend
+- **JUnit 5** - Comprehensive testing framework for backend
+- **ESLint + Prettier** - Code quality and formatting tools
+- **SonarQube Ready** - Code quality analysis integration
+
+## 🌐 Live Demo
+
+You can see the application in action here: [https://possystem.jstevenon.com/](https://possystem.jstevenon.com/)
+
 *Contact the repository owner for demo credentials*
 
-## Installation
+## 📦 Installation
 
 ### Prerequisites
 - Docker and Docker Compose
@@ -154,33 +225,113 @@ cp .env.example .env
 ./scripts/prod-deploy.sh
 ```
 
-## Monitoring and Health Checks
+## 🧪 Testing
 
-- **Application Health**: `/health`
-- **Detailed Health**: `/health/detailed`
-- **Actuator Endpoints**: `/actuator/health`
+### Frontend Testing
+```bash
+cd frontend
 
-## Contributing
+# Run all tests
+bun run test
 
-We welcome contributions! To contribute:
+# Run tests with coverage
+bun run test:coverage
 
-1. **Fork the repository.**
-2. **Create a new branch** (`git checkout -b feature/your-feature`).
-3. **Make your changes.**
-4. **Commit your changes** (`git commit -m 'Add some feature'`).
-5. **Push to the branch** (`git push origin feature/your-feature`).
-6. **Open a Pull Request.**
+# Run tests in watch mode
+bun run test --watch
 
-Please make sure your code adheres to the coding conventions and standards used in the project.
+# Run tests with UI
+bun run test:ui
+```
 
-## License
+### Backend Testing
+```bash
+cd backend
 
-This project is licensed under the MIT License
+# Run all tests
+./gradlew test
 
-## Authors
+# Run tests with coverage report
+./gradlew test jacocoTestReport
 
-- **Jhon Orjuela** - _Initial work_ - [Jhon's GitHub](https://github.com/Jhons14)
+# Run integration tests
+./gradlew integrationTest
+```
 
-## Acknowledgments
+### Code Quality
+```bash
+# Frontend linting and formatting
+bun run lint
+bun run format
+bun run type-check
 
-- This project was inspired by the needs of small retail businesses to have an affordable and efficient POS system.
+# Backend code analysis (if SonarQube is configured)
+./gradlew sonarqube
+```
+
+## 📊 Monitoring and Health Checks
+
+### Health Endpoints
+- **Application Health**: `GET /health`
+- **Detailed Health**: `GET /health/detailed`
+- **Actuator Endpoints**: `GET /actuator/health`
+- **Metrics**: `GET /metrics/database`, `/metrics/cache`, `/metrics/performance`
+
+### Performance Monitoring
+- Database connection pool metrics
+- Cache hit/miss ratios
+- API response times
+- Resource utilization monitoring
+- Core Web Vitals tracking (frontend)
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Install dependencies**: `bun install` (frontend) and `./gradlew build` (backend)
+4. **Make your changes** following the existing code style
+5. **Run tests**: Ensure all tests pass before submitting
+6. **Run linting**: `bun run lint && bun run format`
+7. **Commit changes**: `git commit -m 'Add amazing feature'`
+8. **Push to branch**: `git push origin feature/amazing-feature`
+9. **Open a Pull Request** with a clear description of your changes
+
+### Development Guidelines
+- Follow existing code conventions and patterns
+- Write tests for new features
+- Update documentation as needed
+- Ensure Docker builds work correctly
+- Check that all security standards are maintained
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Authors
+
+- **Jhon Orjuela** - *Full Stack Developer & Project Lead* - [GitHub](https://github.com/Jhons14)
+
+## 🙏 Acknowledgments
+
+- Inspired by the needs of small retail businesses for affordable POS solutions
+- Built with modern web technologies and best practices
+- Designed for scalability and enterprise-grade reliability
+- Community feedback and contributions are highly valued
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/Jhons14/POSSystem/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Jhons14/POSSystem/discussions)
+- **Email**: Contact repository owner for direct support
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you find it helpful!**
+
+Made with ❤️ by [Jhon Orjuela](https://github.com/Jhons14)
+
+</div>
