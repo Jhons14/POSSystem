@@ -33,6 +33,12 @@ public class SecurityConfig   {
     @Autowired
     private JwtFilterRequest jwtFilterRequest;
 
+    @Autowired
+    private RateLimitingFilter rateLimitingFilter;
+
+    @Autowired
+    private SecurityHeadersFilter securityHeadersFilter;
+
     @Bean
     public AuthenticationManager authManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
 
@@ -72,7 +78,9 @@ public class SecurityConfig   {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
-                // Añadir el filtro JWT personalizado antes del filtro estándar de autenticación
+                // Añadir filtros personalizados en orden de ejecución
+                .addFilterBefore(securityHeadersFilter, RateLimitingFilter.class)
+                .addFilterBefore(rateLimitingFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

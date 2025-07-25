@@ -14,6 +14,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
@@ -31,7 +32,7 @@ public class AuthController {
 
 
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createToken (@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<?> createToken (@Valid @RequestBody AuthenticationRequest request) {
 
         try {
 

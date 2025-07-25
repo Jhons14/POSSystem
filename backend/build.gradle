@@ -33,6 +33,13 @@ dependencies {
 
     implementation 'org.mapstruct:mapstruct:1.5.1.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.1.Final'
+    
+    // Security enhancements
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.github.bucket4j:bucket4j-core:7.6.0'
+    implementation 'io.github.bucket4j:bucket4j-redis:7.6.0'
+    
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
