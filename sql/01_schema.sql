@@ -61,7 +61,7 @@ CREATE TABLE CLIENTES (
 -- -----------------------------------------------------
 CREATE TABLE  COMPRAS (
   "id_compra" SERIAL NOT NULL,
-  "id_cliente" VARCHAR(20) NOT NULL,
+  "id_cliente" BIGINT NOT NULL,
   "fecha" TIMESTAMP NULL,
   "medio_pago" CHAR(1) NULL,
   "comentario" VARCHAR(300) NULL,

@@ -65,7 +65,7 @@ INSERT INTO CLIENTES (
     id, nombre, apellidos, celular, direccion, correo_electronico, 
     username, password_hash
 ) VALUES (
-    'CLI001', 
+    1, 
     'Juan', 
     'Pérez García', 
     '+57 300 123 4567', 
@@ -76,7 +76,7 @@ INSERT INTO CLIENTES (
 );
 
 -- COMPRA
-INSERT INTO compras VALUES (1, '4546221', TO_TIMESTAMP('10/08/1992 17:30:00','DD/MM/YYYY HH24:MI:SS'), 'E', '', 'P');
+INSERT INTO compras VALUES (1, 1, TO_TIMESTAMP('10/08/1992 17:30:00','DD/MM/YYYY HH24:MI:SS'), 'E', '', 'P');
 INSERT INTO compras_productos VALUES (1, 1, 10, 3000, true);
 INSERT INTO compras_productos VALUES (1, 36, 1, 40000, true);
 INSERT INTO compras_productos VALUES (1, 27, 1, 9000, true);

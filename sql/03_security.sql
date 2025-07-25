@@ -5,7 +5,7 @@
 -- 2. TABLA PARA RESETEO SEGURO DE CONTRASEÑAS
 CREATE TABLE password_resets (
     id SERIAL PRIMARY KEY,
-    cliente_id VARCHAR(20) REFERENCES CLIENTES(id) ON DELETE CASCADE,
+    cliente_id BIGINT REFERENCES CLIENTES(id) ON DELETE CASCADE,
     token VARCHAR(255) NOT NULL UNIQUE,
     expira_en TIMESTAMP NOT NULL,
     usado BOOLEAN DEFAULT FALSE,
@@ -16,7 +16,7 @@ CREATE TABLE password_resets (
 -- 3. TABLA PARA SESIONES (OPCIONAL PERO RECOMENDADA)
 CREATE TABLE sesiones (
     id SERIAL PRIMARY KEY,
-    cliente_id VARCHAR(20) REFERENCES CLIENTES(id) ON DELETE CASCADE,
+    cliente_id BIGINT REFERENCES CLIENTES(id) ON DELETE CASCADE,
     token_sesion VARCHAR(255) NOT NULL UNIQUE,
     ip_address INET,
     user_agent TEXT,
@@ -29,7 +29,7 @@ CREATE TABLE sesiones (
 -- 4. TABLA PARA LOG DE INTENTOS DE LOGIN (SEGURIDAD EXTRA)
 CREATE TABLE login_attempts (
     id SERIAL PRIMARY KEY,
-    cliente_id VARCHAR(20) REFERENCES CLIENTES(id) ON DELETE CASCADE,
+    cliente_id BIGINT REFERENCES CLIENTES(id) ON DELETE CASCADE,
     ip_address INET,
     exitoso BOOLEAN DEFAULT FALSE,
     razon_fallo VARCHAR(100), -- 'password_incorrecto', 'usuario_bloqueado', etc.
@@ -107,25 +107,12 @@ $$ LANGUAGE 'plpgsql';
 -- EJEMPLOS DE USO
 -- ================================================================
 
--- Insertar un cliente nuevo
-INSERT INTO CLIENTES (
-    id, nombre, apellidos, celular, direccion, correo_electronico, 
-    username, password_hash
-) VALUES (
-    'CLI001', 
-    'Juan', 
-    'Pérez García', 
-    '+57 300 123 4567', 
-    'Calle 123 #45-67, Bogotá', 
-    'juan@email.com',
-    'juan_perez',
-    '$2b$10$ejemplo_hash_bcrypt_aqui'
-);
+-- Note: Cliente already inserted in 02_data.sql with id=1
 
 -- Solicitar reseteo de contraseña
 INSERT INTO password_resets (cliente_id, token, expira_en, ip_solicitud)
 VALUES (
-    'CLI001', 
+    1, 
     'token_super_seguro_' || gen_random_uuid(), 
     NOW() + INTERVAL '1 hour',
     '192.168.1.1'::INET
@@ -134,7 +121,7 @@ VALUES (
 -- Crear sesión después del login
 INSERT INTO sesiones (cliente_id, token_sesion, ip_address, user_agent, expira_en)
 VALUES (
-    'CLI001',
+    1,
     'session_' || gen_random_uuid(),
     '192.168.1.1'::INET,
     'Mozilla/5.0...',

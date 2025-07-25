@@ -30,6 +30,10 @@ services:
     container_name: pos-backend
     environment:
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      PORT: 8080
+      DATABASE_DEV_URL: jdbc:postgresql://postgres:5432/posdb
+      DATABASE_DEV_USERNAME: posuser
+      DATABASE_DEV_PASSWORD: ${POSTGRES_PASSWORD:-dev_password_change_in_production}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/posdb
       SPRING_DATASOURCE_USERNAME: posuser
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-dev_password_change_in_production}

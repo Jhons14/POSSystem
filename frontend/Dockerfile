@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json bun.lock ./
 
 # Install dependencies
-RUN bun install --frozen-lockfile --production
+RUN bun install
 
 # Copy source code
 COPY . .
@@ -39,9 +39,10 @@ RUN chown -R nginx-user:nginx-group /var/cache/nginx && \
     touch /var/run/nginx.pid && \
     chown -R nginx-user:nginx-group /var/run/nginx.pid
 
-# Health check
+# Health check (install curl first)
+RUN apk add --no-cache curl
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
+    CMD curl -f http://localhost/ || exit 1
 
 # Switch to non-root user
 USER nginx-user

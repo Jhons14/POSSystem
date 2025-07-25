@@ -79,8 +79,8 @@ public class SecurityConfig   {
                 )
 
                 // Añadir filtros personalizados en orden de ejecución
-                .addFilterBefore(securityHeadersFilter, RateLimitingFilter.class)
                 .addFilterBefore(rateLimitingFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(securityHeadersFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
