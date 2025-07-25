@@ -58,6 +58,11 @@ node_modules
 /.pnp
 .pnp.js
 
+# Package manager lock files (keep only package-lock.json for npm)
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+
 # testing
 /coverage
 
