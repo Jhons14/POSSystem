@@ -1,0 +1,50 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Documentation
+README.md
+*.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Node modules (will be installed in container)
+frontend/node_modules
+frontend/dist
+frontend/.cache
+
+# Java build artifacts (will be built in container)
+backend/build/
+backend/.gradle/
+backend/gradle/wrapper/gradle-wrapper.jar
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

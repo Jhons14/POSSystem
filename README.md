@@ -16,6 +16,24 @@ You can see an application's preview here https://possystem.jstevenon.com/ <br/>
 ## Installation
 
 ### Prerequisites
+- Docker and Docker Compose
+- Git
+
+### Quick Start with Docker (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Jhons14/POSSystem.git
+cd POSSystem
+
+# Copy environment file and configure
+cp .env.example .env
+# Edit .env with your settings
+
+# Start all services
+./scripts/dev-start.sh
+```
+
+### Manual Installation
 - Node.js 18+ and npm
 - Java 17+
 - PostgreSQL 12+
@@ -96,6 +114,51 @@ You can see an application's preview here https://possystem.jstevenon.com/ <br/>
 
 Once the backend is running, access the Swagger documentation at:
 `http://localhost:8080/swagger-ui/index.html`
+
+## Docker Development
+
+### Available Services
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8080/pos/server/api
+- **Database**: localhost:5432 (posdb)
+- **Redis**: localhost:6379
+
+### Useful Commands
+```bash
+# View all service logs
+docker-compose logs -f
+
+# View specific service logs
+docker-compose logs -f backend
+docker-compose logs -f frontend
+
+# Restart a service
+docker-compose restart backend
+
+# Stop all services
+docker-compose down
+
+# Rebuild and start
+docker-compose up --build
+```
+
+## Production Deployment
+
+For production deployment:
+```bash
+# Configure production environment
+cp .env.example .env
+# Edit .env with production values
+
+# Deploy to production
+./scripts/prod-deploy.sh
+```
+
+## Monitoring and Health Checks
+
+- **Application Health**: `/health`
+- **Detailed Health**: `/health/detailed`
+- **Actuator Endpoints**: `/actuator/health`
 
 ## Contributing
 
