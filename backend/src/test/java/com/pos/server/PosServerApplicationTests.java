@@ -1,4 +1,4 @@
-package com.plazti.market;
+package com.pos.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

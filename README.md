@@ -11,7 +11,7 @@ This proyect is building by front, server and database:
 
 ## Preview
 You can see an application's preview here https://possystem.jstevenon.com/ <br/>
-PASSWORD: Pos#14
+*Contact the repository owner for demo credentials*
 
 ## Instalación
 1. Clona el repositorio:
