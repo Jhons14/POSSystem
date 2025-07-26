@@ -60,13 +60,7 @@ public class SecurityConfig   {
                 .cors(cors -> cors.configure(http))
 
                 // Configurar rutas permitidas sin autenticación
-                .authorizeHttpRequests(authz -> authz
-                        .requestMatchers(request ->
-                                request.getRemoteAddr().equals("127.0.0.1") ||
-                                        request.getRemoteAddr().equals("0:0:0:0:0:0:0:1") ||
-                                        request.getServerName().equals("localhost")
-                        ).permitAll()
-                        .requestMatchers("/**/authenticate",
+                .authorizeHttpRequests(authz -> authz.requestMatchers("/**/authenticate","/**/customer/save",
                                 "/v2/api-docs", "/swagger-ui/**", "/swagger-resources/**", "/*/swagger-resources/**",
                                 "/*/v2/api-docs", "/webjars/**", "/configuration/security", "/configuration/ui", "/images/**")
                         .permitAll()
