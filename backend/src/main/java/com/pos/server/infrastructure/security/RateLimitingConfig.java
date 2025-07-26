@@ -3,6 +3,7 @@ package com.pos.server.infrastructure.security;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Refill;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,10 +15,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RateLimitingConfig {
 
     private final Map<String, Bucket> cache = new ConcurrentHashMap<>();
+    
+    @Value("${security.rate-limit.requests-per-minute:60}")
+    private int requestsPerMinute;
 
     public Bucket createNewBucket() {
         return Bucket.builder()
-                .addLimit(Bandwidth.classic(10, Refill.intervally(10, Duration.ofMinutes(1))))
+                .addLimit(Bandwidth.classic(requestsPerMinute, Refill.intervally(requestsPerMinute, Duration.ofMinutes(1))))
                 .build();
     }
 

@@ -1,4 +1,6 @@
 package com.pos.server.web.controller;
+import com.pos.server.infrastructure.config.FileUploadConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +14,9 @@ import java.nio.file.Files;
 public class FilesController {
     private static final String UPLOAD_PRODUCT_IMG_DIR = "src/main/resources/static/images/products";
     private static final String UPLOAD_CATEGORY_IMG_DIR = "src/main/resources/static/images/categories";
+    
+    @Autowired
+    private FileUploadConfig fileUploadConfig;
 
 
     @PostMapping("/upload/image/product/{id}")
@@ -20,10 +25,13 @@ public class FilesController {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("No file selected");
         }
+        
+        String originalFilename = file.getOriginalFilename();
+        if (!fileUploadConfig.isFileTypeAllowed(originalFilename)) {
+            return ResponseEntity.badRequest().body("File type not allowed. Allowed types: " + String.join(", ", fileUploadConfig.getAllowedFileTypes()));
+        }
 
         try {
-
-            String originalFilename = file.getOriginalFilename();
             String fileExtension = "";
             String fileNameWithoutExtension = originalFilename;
 
@@ -68,10 +76,13 @@ public class FilesController {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("No file selected");
         }
+        
+        String originalFilename = file.getOriginalFilename();
+        if (!fileUploadConfig.isFileTypeAllowed(originalFilename)) {
+            return ResponseEntity.badRequest().body("File type not allowed. Allowed types: " + String.join(", ", fileUploadConfig.getAllowedFileTypes()));
+        }
 
         try {
-
-            String originalFilename = file.getOriginalFilename();
             String fileExtension = "";
             String fileNameWithoutExtension = originalFilename;
 

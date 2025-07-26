@@ -3,6 +3,7 @@ package com.pos.server.infrastructure.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -10,14 +11,17 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private static final String KEY = "posserver11c16375812192317TYHEWPUGnxoldsaDJSA412";
+    
+    @Value("${security.jwt.secret:posserver11c16375812192317TYHEWPUGnxoldsaDJSA412}")
+    private String jwtSecret;
+    
+    @Value("${security.jwt.expiration-time:86400000}")
+    private long jwtExpirationTime;
 
     public String generateToken(UserDetails userDetails) {
-
-
         return Jwts.builder().setSubject(userDetails.getUsername()).setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 15))
-                .signWith(SignatureAlgorithm.HS256, KEY).compact();
+                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationTime))
+                .signWith(SignatureAlgorithm.HS256, jwtSecret).compact();
     }
 
 
@@ -34,6 +38,6 @@ public class JwtUtil {
     }
 
     public Claims getClaims (String token){
-        return Jwts.parser().setSigningKey(KEY).parseClaimsJws(token).getBody();
+        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
     }
 }
